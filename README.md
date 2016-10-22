@@ -80,8 +80,9 @@ In System Settings GUI, set the Screen Saver in "Brightness and Lock"
   sudo apt-get install clamav
   sudo freshclam
     # Scans the whole computer, only display infected files, ring a bell when found
-  sudo clamscan -r --bell -i /
+  sudo clamscan -r exclude­dir=^/sys\|^/proc\|^/dev --bell -i /
  
+
 Firewall:
     sudo ufw allow from any to any port 22
     sudo ufw deny from any to any
@@ -94,12 +95,27 @@ Firewall:
             chage -m 0 -M 90 -W 7 $each
         done
 
-  # Minimum length (None of these gave me points, but WTH):
+  # Minimum length:
   sudo vi /etc/pam.d/common-password
-password	[success=1 default=ignore]	pam_unix.so obscure sha512 minlen=8 remember=5
-# Complexity:
-password requisite pam_cracklib.so ucredit=-1 lcredit=-1 dcredit=-1  ocredit=-1
-password requisite pam_cracklib.so retry=3 minlen=10 difok=3 ucredit=-1 lcredit=-1 dcredit=-1  ocredit=-1
+    password	[success=1 default=ignore]	pam_unix.so obscure sha512 minlen=8 remember=5
+        # Complexity:
+        password requisite pam_cracklib.so retry=3 minlen=10 difok=3 ucredit=-1 lcredit=-1 dcredit=-1  ocredit=-1
+
+  # Also tried /etc/login.defs for password complexity:
+  PASS_MAX_DAYS	90
+  PASS_MIN_DAYS	1
+  PASS_WARN_AGE	7
 
 
+
+# Tried removing games from Applications -> Ubuntu Software Center -> Installed
+
+# Removed /home/mordecai and /home/lluthor
+
+(Neat trick... .bash_history is softlinked to /dev/null)
+    Cool anti-forensics trick
+
+
+Come back to these when working with the kids:
+http://r2d2.cochise.edu/guilmetted/CyberPatriot/
 
