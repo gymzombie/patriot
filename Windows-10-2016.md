@@ -23,6 +23,12 @@
   Audit - Success/Failure of everything
   Went through Security Options, set a lot of commonsense, real world options
   but got no points
-  
+7. User Creds  
+  One user didn't have a password. Set each account to have a good password
+  and removed "password does not expire" option
+8. Enable Windows Defender Anti-Spyware
+  Modify HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\DisableAntiSpyware 
+  to 0.
+
   
   
