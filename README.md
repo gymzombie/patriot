@@ -45,14 +45,15 @@ SSH root login has been disabled - 10 pts
 
 
     
-    
- Some stuff I do out of system hardening habit that didn't get me points:
+## Non-Scoring changes    
+Some stuff I do out of system hardening habit that didn't get me points:
     (AKA Fishing for solutions...)
  
  Make backups of key files (/etc/group, passwd, shadow)
 
  # Adjust some networking options:
 
+```bash
 vi /etc/sysctl.conf
     net.ipv4.conf.default.rp_filter = 1
     net.ipv4.conf.all.rp_filter = 1
@@ -66,14 +67,15 @@ vi /etc/sysctl.conf
     net.ipv6.conf.all.disable_ipv6 = 1
     net.ipv6.conf.default.disable_ipv6 = 1
     net.ipv6.conf.lo.disable_ipv6 = 1
+ ```
     
 In System Settings GUI, set the Screen Saver in "Brightness and Lock"
 
-# Disable root login
+  # Disable root login
   sudo passwd -l root
 
 
-# fix home directory permissions
+  # fix home directory permissions
   sudo chmod 0750 /home/*
   
   Antivirus:
@@ -108,9 +110,9 @@ Firewall:
 
 
 
-# Tried removing games from Applications -> Ubuntu Software Center -> Installed
+  # Tried removing games from Applications -> Ubuntu Software Center -> Installed
 
-# Removed /home/mordecai and /home/lluthor
+  # Removed /home/mordecai and /home/lluthor
 
 (Neat trick... .bash_history is softlinked to /dev/null)
     Cool anti-forensics trick
