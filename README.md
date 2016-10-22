@@ -2,7 +2,7 @@
 Experimenting with scripts, tools, and documentation to do system hardening for CyberPatriot. 
 
 1. Access control
-   Remove extra accounts `sudo deluser lluthor`
+   Remove extra accounts `sudo deluser lluthor`  
    Remove any extra admins from wheel in /etc/group `tstark`
 2. Search for audio/video
 ```bash
