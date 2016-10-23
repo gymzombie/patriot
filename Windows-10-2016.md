@@ -1,7 +1,5 @@
 #Windows 7 Practice Image
 
-1. Show users  
-  `CMD -> net user`
 2. Access control  
   Remove `druzod` account
   Remove `bwayne` from Administrator
